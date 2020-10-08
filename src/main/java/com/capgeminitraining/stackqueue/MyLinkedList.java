@@ -159,7 +159,7 @@ public class MyLinkedList<K extends Comparable> {
 	 */
 	public void printLinkedList() {
 		try {
-			StringBuffer myNodes = new StringBuffer("My Stack: ");
+			StringBuffer myNodes = new StringBuffer("My Nodes: ");
 			INode tempNode = this.getHead();
 			while (tempNode.getNext() != null) {
 				myNodes.append(tempNode.getKey());
@@ -172,7 +172,7 @@ public class MyLinkedList<K extends Comparable> {
 			System.out.println(myNodes);
 		}
 		catch(NullPointerException e) {
-			System.out.println("Stack is empty");
+			System.out.println("Stack/Queue is empty");
 		}
 	}
 }
