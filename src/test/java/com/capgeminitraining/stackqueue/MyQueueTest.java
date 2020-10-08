@@ -1,5 +1,6 @@
 package com.capgeminitraining.stackqueue;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -18,15 +19,27 @@ public class MyQueueTest {
 		thirdNode = new MyNode<Integer>(70);
 		myQueue = new MyQueue<Integer>();
 	}
-	
+
 	@Test
 	public void given3Numbers_WhenQueued_ShouldHaveFirstAddedNode() {
 		myQueue.enqueue(firstNode);
 		myQueue.enqueue(secondNode);
 		myQueue.enqueue(thirdNode);
 		myQueue.viewMyQueue();
-		boolean result = myQueue.myLinkedList.getHead().equals(firstNode) && myQueue.myLinkedList.getHead().getNext().equals(secondNode)
+		boolean result = myQueue.myLinkedList.getHead().equals(firstNode)
+				&& myQueue.myLinkedList.getHead().getNext().equals(secondNode)
 				&& myQueue.myLinkedList.getTail().equals(thirdNode);
 		assertTrue(result);
+	}
+
+	@Test
+	public void givenAQueue_WhenDequeued_ShouldReturnTheFirstAddedNode() {
+		myQueue.enqueue(firstNode);
+		myQueue.enqueue(secondNode);
+		myQueue.enqueue(thirdNode);
+		myQueue.viewMyQueue();
+		INode dequeue = myQueue.dequeue();
+		assertEquals(firstNode, dequeue);
+		myQueue.viewMyQueue();
 	}
 }

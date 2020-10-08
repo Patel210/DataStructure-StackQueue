@@ -8,12 +8,19 @@ public class MyQueue<K extends Comparable> {
 	}
 
 	/**
-	 * @param newNode Enqueuing new element in the queue 
+	 * @param newNode Enqueuing new element in the queue
 	 */
 	public void enqueue(INode newNode) {
 		myLinkedList.append(newNode);
 	}
-	
+
+	/**
+	 * @return
+	 */
+	public INode dequeue() {
+		return myLinkedList.pop();
+	}
+
 	/**
 	 * Printing queue
 	 */
