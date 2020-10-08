@@ -158,16 +158,21 @@ public class MyLinkedList<K extends Comparable> {
 	 * To print the linked list
 	 */
 	public void printLinkedList() {
-		StringBuffer myNodes = new StringBuffer("My Stack: ");
-		INode tempNode = this.getHead();
-		while (tempNode.getNext() != null) {
-			myNodes.append(tempNode.getKey());
-			if (!tempNode.equals(getTail())) {
-				myNodes.append("->");
+		try {
+			StringBuffer myNodes = new StringBuffer("My Stack: ");
+			INode tempNode = this.getHead();
+			while (tempNode.getNext() != null) {
+				myNodes.append(tempNode.getKey());
+				if (!tempNode.equals(getTail())) {
+					myNodes.append("->");
+				}
+				tempNode = tempNode.getNext();
 			}
-			tempNode = tempNode.getNext();
+			myNodes.append(tempNode.getKey());
+			System.out.println(myNodes);
 		}
-		myNodes.append(tempNode.getKey());
-		System.out.println(myNodes);
+		catch(NullPointerException e) {
+			System.out.println("Stack is empty");
+		}
 	}
 }

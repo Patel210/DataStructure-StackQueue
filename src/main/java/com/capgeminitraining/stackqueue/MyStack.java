@@ -20,4 +20,12 @@ public class MyStack<K extends Comparable> {
 	public void push(INode newNode) {
 		myLinkedList.add(newNode);
 	}
+
+	public INode peak() {
+		return myLinkedList.getHead();
+	}
+
+	public INode pop() {
+		return myLinkedList.pop();
+	}
 }

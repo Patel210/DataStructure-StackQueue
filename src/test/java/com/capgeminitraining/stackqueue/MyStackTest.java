@@ -14,23 +14,34 @@ public class MyStackTest {
 
 	@Before
 	public void setup() {
-		firstNode = new MyNode<Integer>(56);
+		firstNode = new MyNode<Integer>(70);
 		secondNode = new MyNode<Integer>(30);
-		thirdNode = new MyNode<Integer>(70);
+		thirdNode = new MyNode<Integer>(56);
 		myStack = new MyStack<Integer>();
 	}
 
 	@Test
 	public void given3Numbers_WhenPushed_ShouldPassTheStackTest() {
-		myStack.push(thirdNode);
-		myStack.push(secondNode);
 		myStack.push(firstNode);
+		myStack.push(secondNode);
+		myStack.push(thirdNode);
 		myStack.viewMyStack();
-		boolean result = myStack.myLinkedList.getHead().equals(firstNode)
+		boolean result = myStack.myLinkedList.getHead().equals(thirdNode)
 				&& myStack.myLinkedList.getHead().getNext().equals(secondNode)
-				&& myStack.myLinkedList.getTail().equals(thirdNode);
+				&& myStack.myLinkedList.getTail().equals(firstNode);
 
 		assertTrue(result);
 	}
 
+	@Test
+	public void givenAStack_WhenPoped_ShouldReturnTheLastAddedNode() {
+		myStack.push(firstNode);
+		myStack.push(secondNode);
+		myStack.push(thirdNode);
+		INode pop = myStack.pop();
+		INode peak = myStack.peak();
+		assertEquals(thirdNode, pop);
+		assertEquals(secondNode, peak);
+		myStack.viewMyStack();
+	}
 }
